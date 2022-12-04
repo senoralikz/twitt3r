@@ -12,7 +12,7 @@ export default function Home() {
         <title>twitt3r</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="">
+      <main className="grid grid-cols-9">
         <Sidebar />
         <Feed />
         <Widgets />
