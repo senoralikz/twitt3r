@@ -23,14 +23,14 @@ const Sidebar = () => {
         width={500}
         height={500}
       /> */}
-      {/* <SidebarRow Icon={HomeIcon} title="Home" />
+      <SidebarRow Icon={HomeIcon} title="Home" />
       <SidebarRow Icon={HashtagIcon} title="Explore" />
       <SidebarRow Icon={BellIcon} title="Notifications" />
       <SidebarRow Icon={MailIcon} title="Messages" />
       <SidebarRow Icon={BookmarkIcon} title="Bookmarks" />
       <SidebarRow Icon={CollectionIcon} title="Lists" />
       <SidebarRow Icon={UserIcon} title="Sign In" />
-      <SidebarRow Icon={DotsCircleHorizontalIcon} title="More" /> */}
+      <SidebarRow Icon={DotsCircleHorizontalIcon} title="More" />
     </div>
   );
 };

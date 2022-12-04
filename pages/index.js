@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Sidebar from "../components/Sidebar";
+import Feed from "../components/Feed";
 
 export default function Home() {
   return (
@@ -12,8 +13,7 @@ export default function Home() {
       </Head>
       <main className="">
         <Sidebar />
-        {/* feed */}
-
+        <Feed />
         {/* widgets */}
       </main>
     </div>
