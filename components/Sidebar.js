@@ -14,8 +14,9 @@ import Image from "next/image";
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col col-span-2">
+    <div className="flex flex-col col-span-2 items-center px-4 md:items-start">
       <Image
+        className="m-3"
         src="https://links.papareact.com/drq"
         alt="twitter_logo"
         width={40}

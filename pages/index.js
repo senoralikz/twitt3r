@@ -7,7 +7,7 @@ import Widgets from "../components/Widgets";
 
 export default function Home() {
   return (
-    <div>
+    <div className="lg:max-w-6xl mx-auto max-h-screen overflow-hidden">
       <Head>
         <title>twitt3r</title>
         <link rel="icon" href="/favicon.ico" />
