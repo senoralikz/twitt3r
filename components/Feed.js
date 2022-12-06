@@ -1,8 +1,9 @@
 import { RefreshIcon } from "@heroicons/react/outline";
 import React from "react";
+import TweetComponent from "./Tweet";
 import TweetBox from "./TweetBox";
 
-const Feed = () => {
+const Feed = ({ tweets }) => {
   return (
     <div className="col-span-7 lg:col-span-5 border-x">
       <div className="flex items-center justify-between">
@@ -10,8 +11,16 @@ const Feed = () => {
         <RefreshIcon className="h-8 w-8 cursor-pointer text-twitter mr-5 mt-5 transition-all duration-500 ease-out hover:rotate-180 active:scale-125" />
       </div>
 
-      {/* Tweetbox */}
-      <TweetBox />
+      <div>
+        <TweetBox />
+      </div>
+
+      {/* Feed */}
+      <div>
+        {tweets.map((tweet) => (
+          <TweetComponent key={tweet._id} tweet={tweet} />
+        ))}
+      </div>
     </div>
   );
 };
