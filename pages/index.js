@@ -1,11 +1,11 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import Sidebar from "../components/Sidebar";
 import Feed from "../components/Feed";
 import Widgets from "../components/Widgets";
+import { fetchTweets } from "../utils/fetchTweets.js";
 
-export default function Home() {
+export default function Home({ tweets }) {
+  console.log(tweets);
   return (
     <div className="lg:max-w-6xl mx-auto max-h-screen overflow-hidden">
       <Head>
@@ -20,3 +20,13 @@ export default function Home() {
     </div>
   );
 }
+
+export const getServerSideProps = async (context) => {
+  const tweets = await fetchTweets();
+
+  return {
+    props: {
+      tweets,
+    },
+  };
+};
