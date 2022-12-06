@@ -4,6 +4,7 @@ import TweetComponent from "./Tweet";
 import TweetBox from "./TweetBox";
 
 const Feed = ({ tweets }) => {
+  // console.log(tweets);
   return (
     <div className="col-span-7 lg:col-span-5 border-x">
       <div className="flex items-center justify-between">
