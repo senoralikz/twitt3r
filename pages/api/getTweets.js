@@ -11,6 +11,6 @@ const feedQuery = groq`
 
 export default async function handler(req, res) {
   const tweets = await sanityClient.fetch(feedQuery);
-  console.log(tweets);
+  // console.log(tweets);
   res.status(200).json({ tweets });
 }

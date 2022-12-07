@@ -14,6 +14,6 @@ export default async function handler(req, res) {
 
   const comments = await sanityClient.fetch(commentQuery, { tweetId });
 
-  console.log("Comments are >>>>>", comments);
+  // console.log("Comments are >>>>>", comments);
   res.status(200).json(comments);
 }
