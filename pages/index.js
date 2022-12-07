@@ -3,6 +3,7 @@ import Sidebar from "../components/Sidebar";
 import Feed from "../components/Feed";
 import Widgets from "../components/Widgets";
 import { fetchTweets } from "../utils/fetchTweets.js";
+import { Toaster } from "react-hot-toast";
 
 export default function Home({ tweets }) {
   // console.log(tweets);
@@ -12,6 +13,9 @@ export default function Home({ tweets }) {
         <title>twitt3r</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Toaster />
+
       <main className="grid grid-cols-9">
         <Sidebar />
         <Feed tweets={tweets} />
