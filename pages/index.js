@@ -11,7 +11,8 @@ export default function Home({ tweets }) {
     <div className="lg:max-w-6xl mx-auto max-h-screen overflow-hidden">
       <Head>
         <title>twitt3r</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/twitt3r-icon.png" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
 
       <Toaster />

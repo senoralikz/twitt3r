@@ -20,7 +20,8 @@ const Sidebar = () => {
     <div className="flex flex-col col-span-2 items-center px-4 md:items-start">
       <Image
         className="m-3"
-        src="https://links.papareact.com/drq"
+        src="/../public/twitt3r-icon.png"
+        // src="https://links.papareact.com/drq"
         alt="twitter_logo"
         width={40}
         height={40}

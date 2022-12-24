@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        twitter: "#00ADED",
+        twitter: "#9b59b6",
+        // twitter: "#00ADED",
       },
     },
   },

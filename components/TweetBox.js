@@ -65,7 +65,12 @@ const TweetBox = ({ setTweets }) => {
   };
 
   return (
-    <div className="flex space-x-2 p-5">
+    <div className="flex space-x-2 p-5 relative">
+      {/* {!session && (
+        <div className="absolute w-fit p-3 px-8 bg-blue-200 border-2 border-blue-300 rounded-md top-10 left-60">
+          <p>Please Sign In To Tweet</p>
+        </div>
+      )} */}
       <img
         className="object-cover rounded-full mt-4 h-14 w-14"
         src={session?.user?.image || "https://links.papareact.com/gll"}
@@ -82,11 +87,16 @@ const TweetBox = ({ setTweets }) => {
       <div className="flex flex-1 items-center pl-2">
         <form className="flex flex-1 flex-col" action="">
           <input
-            className="h-24 w-full text-xl outline-none placeholder:text-xl"
+            className="h-24 w-full mb-2 text-xl p-3 outline-none placeholder:text-base placeholder:md:text-xl disabled:rounded-xl"
             type="text"
-            placeholder="What's happening?"
+            placeholder={
+              session
+                ? "What's happening?"
+                : "Sign In To Share Your Thoughts..."
+            }
             value={input}
             onChange={(event) => setInput(event.target.value)}
+            disabled={!session}
           />
           <div className="flex items-center">
             <div className="flex flex-1 space-x-2 text-twitter">
