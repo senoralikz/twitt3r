@@ -12,7 +12,6 @@ export default function Home({ tweets }) {
       <Head>
         <title>twitt3r</title>
         <link rel="icon" href="/twitt3r-icon.png" />
-        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
 
       <Toaster />

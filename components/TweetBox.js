@@ -66,23 +66,11 @@ const TweetBox = ({ setTweets }) => {
 
   return (
     <div className="flex space-x-2 p-5 relative">
-      {/* {!session && (
-        <div className="absolute w-fit p-3 px-8 bg-blue-200 border-2 border-blue-300 rounded-md top-10 left-60">
-          <p>Please Sign In To Tweet</p>
-        </div>
-      )} */}
       <img
         className="object-cover rounded-full mt-4 h-14 w-14"
         src={session?.user?.image || "https://links.papareact.com/gll"}
         alt="user_img"
       />
-      {/* <Image
-        className="object-cover rounded-full mt-4 h-14 w-14"
-        src={session?.user?.image || "https://links.papareact.com/gll"}
-        alt="user_img"
-        width={56}
-        height={56}
-      /> */}
 
       <div className="flex flex-1 items-center pl-2">
         <form className="flex flex-1 flex-col" action="">
