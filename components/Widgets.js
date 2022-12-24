@@ -1,17 +1,6 @@
 import { SearchIcon } from "@heroicons/react/outline";
 import React from "react";
-import {
-  TwitterTimelineEmbed,
-  TwitterShareButton,
-  TwitterFollowButton,
-  TwitterHashtagButton,
-  TwitterMentionButton,
-  TwitterTweetEmbed,
-  TwitterMomentShare,
-  TwitterDMButton,
-  TwitterVideoEmbed,
-  TwitterOnAirButton,
-} from "react-twitter-embed";
+import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 const Widgets = () => {
   return (
@@ -28,8 +17,9 @@ const Widgets = () => {
 
       <TwitterTimelineEmbed
         sourceType="profile"
-        screenName="senor_alikz"
+        screenName="elonmusk"
         options={{ height: 1000 }}
+        noHeader="false"
       />
     </div>
   );

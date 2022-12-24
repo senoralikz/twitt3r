@@ -9,6 +9,12 @@ const nextConfig = {
         // port: "",
         // pathname: "/drq",
       },
+      {
+        protocol: "https",
+        hostname: "i.imgur.com",
+        // port: "",
+        // pathname: "/drq",
+      },
     ],
   },
 };
