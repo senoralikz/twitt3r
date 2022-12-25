@@ -6,6 +6,8 @@ import {
   LocationMarkerIcon,
   PhotographIcon,
   SearchCircleIcon,
+  XCircleIcon,
+  XIcon,
 } from "@heroicons/react/outline";
 import { useSession } from "next-auth/react";
 import { fetchTweets } from "../utils/fetchTweets";
@@ -16,16 +18,18 @@ const TweetBox = ({ setTweets }) => {
   const [image, setImage] = useState("");
   const [imgUrl, setImgUrl] = useState(false);
 
-  const imageInputRef = useRef(null);
+  const selectedImageRef = useRef(null);
+  const imageURLInputRef = useRef(null);
+
   const { data: session } = useSession();
 
   const addImageToTweet = (event) => {
     event.preventDefault();
 
-    if (!imageInputRef.current?.value) return;
+    if (!imageURLInputRef.current?.value) return;
 
-    setImage(imageInputRef.current.value);
-    imageInputRef.current.value = "";
+    setImage(imageURLInputRef.current.value);
+    imageURLInputRef.current.value = "";
     setImgUrl(false);
   };
 
@@ -64,6 +68,11 @@ const TweetBox = ({ setTweets }) => {
     setImgUrl(false);
   };
 
+  const onSelectImage = async (event) => {
+    setImage(URL.createObjectURL(event.target.files[0]));
+    setImgUrl(false);
+  };
+
   return (
     <div className="flex space-x-2 p-5 relative">
       <img
@@ -77,11 +86,7 @@ const TweetBox = ({ setTweets }) => {
           <input
             className="h-24 w-full mb-2 text-xl p-3 outline-none placeholder:text-base placeholder:md:text-xl disabled:rounded-xl"
             type="text"
-            placeholder={
-              session
-                ? "What's happening?"
-                : "Sign In To Share Your Thoughts..."
-            }
+            placeholder={session ? "What's happening?" : "Sign In To Tweet..."}
             value={input}
             onChange={(event) => setInput(event.target.value)}
             disabled={!session}
@@ -99,7 +104,7 @@ const TweetBox = ({ setTweets }) => {
             </div>
             <button
               onClick={handleSubmit}
-              disabled={!input || !session}
+              disabled={!input || !session || !image}
               className="bg-twitter px-5 py-2 font-bold text-white rounded-full disabled:opacity-40"
             >
               Tweet
@@ -108,31 +113,58 @@ const TweetBox = ({ setTweets }) => {
 
           {imgUrl && (
             <form
-              className="mt-5 flex rounded-lg bg-twitter/80 py-2 px-4"
+              className="flex flex-col mt-5 rounded-lg bg-twitter/80 py-2 px-4 items-center"
               action=""
             >
+              <div className="w-full flex justify-between">
+                <input
+                  ref={imageURLInputRef}
+                  className="bg-transparent flex-1 pr-2 text-white outline-none placeholder:text-white"
+                  type="text"
+                  placeholder="Enter Image URL..."
+                />
+                <button
+                  type="submit"
+                  onClick={addImageToTweet}
+                  className="rounded-full text-white font-bold border px-2"
+                >
+                  Add Image
+                </button>
+              </div>
+              <p className="text-white mb-2">or</p>
+
+              {/* Select image input */}
               <input
-                ref={imageInputRef}
-                className="flex-1 bg-transparent p-2 text-white outline-none placeholder:text-white"
-                type="text"
-                placeholder="Enter Image URL..."
+                type="file"
+                accept="image/*"
+                ref={selectedImageRef}
+                onChange={(event) => onSelectImage(event)}
+                style={{ display: "none" }}
               />
               <button
-                type="submit"
-                onClick={addImageToTweet}
-                className="font-bold text-white"
+                className="rounded-full text-white font-bold border px-2"
+                onClick={(event) => {
+                  event.preventDefault();
+                  selectedImageRef.current.click();
+                }}
               >
-                Add Image
+                Choose a Picture
               </button>
             </form>
           )}
 
           {image && (
-            <img
-              className="mt-10 h-40 w-full rounded-xl object-contain shadow-lg"
-              src={image}
-              alt=""
-            />
+            <div className="relative">
+              <img
+                className="mt-10 h-40 w-full rounded-xl object-contain shadow-lg"
+                src={image}
+                alt=""
+              />
+              <XIcon
+                className="absolute text-white top-2 right-2 h-6 w-6 cursor-pointer bg-twitter/50 rounded-full transition-transform duration-150 ease-out hover:scale-110"
+                onClick={() => setImage("")}
+              />
+            </div>
           )}
         </form>
       </div>
