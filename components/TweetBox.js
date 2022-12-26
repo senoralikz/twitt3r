@@ -6,7 +6,6 @@ import {
   LocationMarkerIcon,
   PhotographIcon,
   SearchCircleIcon,
-  XCircleIcon,
   XIcon,
 } from "@heroicons/react/outline";
 import { useSession } from "next-auth/react";
@@ -18,7 +17,7 @@ const TweetBox = ({ setTweets }) => {
   const [image, setImage] = useState("");
   const [imgUrl, setImgUrl] = useState(false);
 
-  const selectedImageRef = useRef(null);
+  // const selectedImageRef = useRef(null);
   const imageURLInputRef = useRef(null);
 
   const { data: session } = useSession();
@@ -68,10 +67,13 @@ const TweetBox = ({ setTweets }) => {
     setImgUrl(false);
   };
 
-  const onSelectImage = async (event) => {
-    setImage(URL.createObjectURL(event.target.files[0]));
-    setImgUrl(false);
-  };
+  // const onSelectImage = (event) => {
+  //   // setImage(event.target.files[0].name);
+  //   setImage(URL.createObjectURL(event.target.files[0]));
+  //   // console.log("selected image is:", event.target.files[0]);
+  //   // console.log("selected image name is:", event.target.files[0].name);
+  //   setImgUrl(false);
+  // };
 
   return (
     <div className="flex space-x-2 p-5 relative">
@@ -126,15 +128,15 @@ const TweetBox = ({ setTweets }) => {
                 <button
                   type="submit"
                   onClick={addImageToTweet}
-                  className="rounded-full text-white font-bold border px-2"
+                  className="rounded-full font-bold border px-2 bg-white text-twitter/80"
                 >
                   Add Image
                 </button>
               </div>
-              <p className="text-white mb-2">or</p>
+              {/* <p className="text-white mb-2">or</p> */}
 
               {/* Select image input */}
-              <input
+              {/* <input
                 type="file"
                 accept="image/*"
                 ref={selectedImageRef}
@@ -149,7 +151,7 @@ const TweetBox = ({ setTweets }) => {
                 }}
               >
                 Choose a Picture
-              </button>
+              </button> */}
             </form>
           )}
 

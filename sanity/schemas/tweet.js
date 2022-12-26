@@ -29,5 +29,10 @@ export default {
       title: "Tweet Image",
       type: "string",
     },
+    // {
+    //   name: "uploadImage",
+    //   title: "Tweet Uploaded Image",
+    //   type: "image",
+    // },
   ],
 };
