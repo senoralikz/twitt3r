@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 const TweetBox = ({ setTweets }) => {
   const [input, setInput] = useState("");
   const [image, setImage] = useState("");
+  // const [uploadedImage, setUploadedImage] = useState("");
   const [imgUrl, setImgUrl] = useState(false);
 
   // const selectedImageRef = useRef(null);
@@ -38,6 +39,7 @@ const TweetBox = ({ setTweets }) => {
       username: session?.user?.name || "Unknown User",
       profileImg: session?.user?.image || "https://links.papareact.com/gll",
       image: image,
+      // uploadImage: uploadedImage,
     };
 
     const result = await fetch(`/api/addTweet`, {
@@ -64,14 +66,15 @@ const TweetBox = ({ setTweets }) => {
 
     setInput("");
     setImage("");
+    // setUploadedImage("");
     setImgUrl(false);
   };
 
   // const onSelectImage = (event) => {
-  //   // setImage(event.target.files[0].name);
-  //   setImage(URL.createObjectURL(event.target.files[0]));
-  //   // console.log("selected image is:", event.target.files[0]);
-  //   // console.log("selected image name is:", event.target.files[0].name);
+  //   // setUploadedImage(event.target.files[0].name);
+  //   setUploadedImage(URL.createObjectURL(event.target.files[0]));
+  //   console.log("selected image is:", event.target.files[0]);
+  //   console.log("selected image name is:", event.target.files[0].name);
   //   setImgUrl(false);
   // };
 
@@ -106,7 +109,7 @@ const TweetBox = ({ setTweets }) => {
             </div>
             <button
               onClick={handleSubmit}
-              disabled={!input || !session || !image}
+              disabled={!input || !session}
               className="bg-twitter px-5 py-2 font-bold text-white rounded-full disabled:opacity-40"
             >
               Tweet
@@ -144,7 +147,7 @@ const TweetBox = ({ setTweets }) => {
                 style={{ display: "none" }}
               />
               <button
-                className="rounded-full text-white font-bold border px-2"
+                className="rounded-full font-bold border px-2 bg-white text-twitter/80"
                 onClick={(event) => {
                   event.preventDefault();
                   selectedImageRef.current.click();
@@ -168,6 +171,20 @@ const TweetBox = ({ setTweets }) => {
               />
             </div>
           )}
+
+          {/* {uploadedImage && (
+            <div className="relative">
+              <img
+                className="mt-10 h-40 w-full rounded-xl object-contain shadow-lg"
+                src={uploadedImage}
+                alt=""
+              />
+              <XIcon
+                className="absolute text-white top-2 right-2 h-6 w-6 cursor-pointer bg-twitter/50 rounded-full transition-transform duration-150 ease-out hover:scale-110"
+                onClick={() => setUploadedImage("")}
+              />
+            </div>
+          )} */}
         </form>
       </div>
     </div>

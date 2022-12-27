@@ -13,6 +13,7 @@ export default async function handler(req, res) {
           blockTweet: false,
           profileImg: data.profileImg,
           image: data.image,
+          // uploadImage: data.uploadImage,
         },
       },
     ],
