@@ -6,7 +6,7 @@ import { fetchTweets } from "../utils/fetchTweets.js";
 import { Toaster } from "react-hot-toast";
 
 export default function Home({ tweets }) {
-    console.log(tweets);
+    // console.log(tweets);
     return (
         <div className="lg:max-w-6xl mx-auto max-h-screen overflow-hidden">
             <Head>
@@ -26,7 +26,9 @@ export default function Home({ tweets }) {
 }
 
 export const getServerSideProps = async (context) => {
+    onsole.log("fetching tweets:", tweets);
     const tweets = await fetchTweets();
+    onsole.log("tweets fetched:", tweets);
 
     return {
         props: {
