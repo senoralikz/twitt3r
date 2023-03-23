@@ -26,9 +26,9 @@ export default function Home({ tweets }) {
 }
 
 export const getServerSideProps = async (context) => {
-    onsole.log("fetching tweets:", tweets);
+    console.log("fetching tweets:", tweets);
     const tweets = await fetchTweets();
-    onsole.log("tweets fetched:", tweets);
+    console.log("tweets fetched:", tweets);
 
     return {
         props: {
