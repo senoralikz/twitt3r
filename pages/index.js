@@ -19,7 +19,7 @@ export default function Home({ tweets }) {
             <main className="grid grid-cols-9">
                 <Sidebar />
                 <Feed tweets={tweets} />
-                <Widgets />
+                {/* <Widgets /> */}
             </main>
         </div>
     );
